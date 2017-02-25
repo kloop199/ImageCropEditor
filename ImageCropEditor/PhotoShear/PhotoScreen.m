@@ -1,6 +1,5 @@
 //
 //  PhotoScreen.m
-//  相片截图
 //
 //  Created by selfos on 16/11/27.
 //  Copyright © 2016年 selfos. All rights reserved.

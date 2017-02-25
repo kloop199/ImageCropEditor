@@ -60,7 +60,6 @@ static PhotoScreen *_photoScreen;
 
 - (void)promptWithDelegate{
     
-    //弹出提示
     UIAlertController *alertc=[UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     //从相册获取
     UIAlertAction *action1=[UIAlertAction actionWithTitle:@"从相册获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -78,7 +77,6 @@ static PhotoScreen *_photoScreen;
     
     [alertc addAction:action2];
     
-    //取消
     UIAlertAction *action3=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         [alertc dismissViewControllerAnimated:YES completion:nil];
@@ -89,7 +87,6 @@ static PhotoScreen *_photoScreen;
 }
 
 #pragma mark - 代理方法<PECropViewControllerDelegate>
-
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage
 {
     [controller dismissViewControllerAnimated:YES completion:NULL];
@@ -134,10 +131,7 @@ static PhotoScreen *_photoScreen;
 #pragma mark - 使用系统的方式打开相册
 - (void)openPhotoAlbumWithDelegate
 {
-    //相册
     UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-    
-    //设置弹出相册的UINavigationBar
     UINavigationBar *navaBar=[[UINavigationBar alloc]init];
     navaBar.barTintColor=_barTintColor;
     [controller setValue:navaBar forKeyPath:@"_navigationBar"];
@@ -153,7 +147,6 @@ static PhotoScreen *_photoScreen;
 {
     if (!SIMULATOR) {
         UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-        //设置弹出摄像头的UINavigationBar
         UINavigationBar *navaBar=[[UINavigationBar alloc]init];
         navaBar.barTintColor=_barTintColor;
         [controller setValue:navaBar forKeyPath:@"_navigationBar"];
@@ -165,7 +158,6 @@ static PhotoScreen *_photoScreen;
     }
 }
 
-#pragma mark - 图片选择完毕就会调用这个代理方法<UIImagePickerControllerDelegate>
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];

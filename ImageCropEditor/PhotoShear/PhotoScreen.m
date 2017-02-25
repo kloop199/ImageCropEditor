@@ -135,7 +135,6 @@ static PhotoScreen *_photoScreen;
     UINavigationBar *navaBar=[[UINavigationBar alloc]init];
     navaBar.barTintColor=_barTintColor;
     [controller setValue:navaBar forKeyPath:@"_navigationBar"];
-    
     controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     controller.delegate = self;
     [RVC presentViewController:controller animated:YES completion:NULL];
